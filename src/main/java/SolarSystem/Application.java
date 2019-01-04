@@ -1,6 +1,6 @@
 package SolarSystem;
 
-import SolarSystem.Implementations.SolarSystemImpl;
+import SolarSystem.Implementations.SolarSystemManager;
 import SolarSystem.Models.Planet;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -8,9 +8,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @SpringBootApplication(scanBasePackages = {"boot.registration"})
 @EnableAutoConfiguration
@@ -23,9 +20,15 @@ public class Application {
 
     private static void run(String... args) {
 
-        SolarSystemImpl mySolarSystem = new SolarSystemImpl(0,0);
-        Planet vulcano = new Planet(500, (short) 1, true);
-        System.out.println();
+        SolarSystemManager mySolarSystem = new SolarSystemManager("Astral", 0,0);
+        Planet ferengi = new Planet("Ferengi", 500, true, 1);
+        Planet betasoide = new Planet("Betasoide", 2000,  true, 3);
+        Planet vulcano = new Planet("Vulcano", 1000,  false, 5);
+        mySolarSystem.addPlanet(ferengi);
+        mySolarSystem.addPlanet(betasoide);
+        mySolarSystem.addPlanet(vulcano);
+        mySolarSystem.setTimeReference(0);
+        mySolarSystem.timePass(1000);
     }
 
 //    @Bean

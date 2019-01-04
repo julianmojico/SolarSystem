@@ -4,26 +4,29 @@ import SolarSystem.Utilities.Tuple;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
+import java.util.*;
 
 @Component
 @Scope(value = "prototype")
 
 public class SolarSystem {
 
-
-    private ArrayList<Planet> planets;
+    //Generic class so any implementation of collection can be chosen.
+    private Collection<Planet> planets;
     private Tuple solarCenter;
+    public int ageDays;
 
-    public  SolarSystem(Tuple solarCenter){
-        this.solarCenter = solarCenter;
+    public  SolarSystem(String name, Tuple solarCenter){
+
+        name = name;
+        solarCenter = solarCenter;
     }
 
-    public ArrayList<Planet> getPlanets() {
+    public Collection<Planet> getPlanets() {
         return planets;
     }
 
-    public void setPlanets(ArrayList<Planet> planets) {
+    public void setPlanets(Collection<Planet> planets) {
         this.planets = planets;
     }
 
@@ -32,9 +35,5 @@ public class SolarSystem {
     }
 
 
-    public void setSolarCenter(Tuple solarCenter) {
-        this.solarCenter = solarCenter;
-
-    }
 
 }
