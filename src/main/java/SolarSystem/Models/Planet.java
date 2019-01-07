@@ -1,11 +1,17 @@
 package SolarSystem.Models;
 
 import javafx.scene.shape.Circle;
-import org.springframework.beans.factory.annotation.Configurable;
+import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
+import org.apache.commons.math3.util.FastMath;
+import org.apache.commons.math3.util.MathUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.awt.geom.Point2D;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static org.apache.commons.math3.util.MathUtils.normalizeAngle;
 
 @Component
 @Scope(value = "prototype")
@@ -14,13 +20,21 @@ public class Planet {
     public String name;
     public Circle orbit;
     public Point2D actualPosition;
-    //In radians
-    public double actualAngle;
+    //radians angle
+    public double angleRads;
+    //sexagecimal angle normalized
+    public int normalizedAngle;
+    //Sexagecimal angle acumulative
+    public double angle;
     public int turnsToSun;
     public double distanceToSun;
     public int angleByDaySpeed;
     public boolean clockwise;
     public int age;
+    private static final double PIPI = 2*Math.PI;
+    private static final Logger logger = Logger.getLogger(Planet.class.getName());
+    public double x;
+    public double y;
 
 
     public Planet(String name, double distanceToSun, boolean clockwise, int angleByDay){
@@ -31,6 +45,34 @@ public class Planet {
         this.clockwise = clockwise;
         //asumming 0,0 is always the relative position of the sun in the solar system
         orbit = new Circle(0,0,distanceToSun);
+    }
+
+    public void updateAngle(){
+        //clockwise turns increment positively and counterclock increment negatively.
+        if (clockwise){
+            angle+=angleByDaySpeed;
+        } else {
+            angle-=angleByDaySpeed;
+        }
+
+        normalizedAngle = (int) (angle % 360);
+        angleRads = Math.toRadians(normalizedAngle);
+        updateLocation();
+        age++;
+    };
+
+    private void updateLocation(){
+    //updates planet position in x,y according to new angle
+
+        //x=radius*cos(angle)
+        x=distanceToSun*Math.cos(normalizedAngle);
+        //y=radius*cos(angle)
+        y=distanceToSun*Math.sin(normalizedAngle);
+
+    }
+
+    public Vector2D getPointLocation(){
+        return new Vector2D(x,y);
     }
 
 }

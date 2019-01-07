@@ -18,7 +18,7 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    private static void run(String... args) {
+    private static void run(String... args) throws Exception {
 
         SolarSystemManager mySolarSystem = new SolarSystemManager("Astral", 0,0);
         Planet ferengi = new Planet("Ferengi", 500, true, 1);
@@ -28,7 +28,10 @@ public class Application {
         mySolarSystem.addPlanet(betasoide);
         mySolarSystem.addPlanet(vulcano);
         mySolarSystem.setTimeReference(0);
-        mySolarSystem.timePass(1000);
+        //mySolarSystem.timePass(180);
+        mySolarSystem.timePassSequence(1001);
+        System.out.println("End of the Simulation");
+
     }
 
 //    @Bean

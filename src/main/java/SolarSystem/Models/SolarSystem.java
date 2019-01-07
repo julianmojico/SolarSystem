@@ -15,10 +15,12 @@ public class SolarSystem {
     private Collection<Planet> planets;
     private Tuple solarCenter;
     public int ageDays;
+    public String name;
+
 
     public  SolarSystem(String name, Tuple solarCenter){
 
-        name = name;
+        this.name = name;
         solarCenter = solarCenter;
     }
 
