@@ -2,18 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="444f24cd-390a-41af-a662-415e74ce0d95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/SolarSystemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Interfaces/SolarSystemInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/Weather.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Repositories/WeatherRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/WeatherDays.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ServerErrorException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/Planet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/Planet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Services/SolarSystemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Services/SolarSystemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SolarSystem/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SolarSystem/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SolarSystem/Implementations/SolarSystemManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SolarSystem/Implementations/SolarSystemManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SolarSystem/Models/Planet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SolarSystem/Models/Planet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SolarSystem/Models/SolarSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SolarSystem/Models/SolarSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SolarSystem/Services/SolarSystemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SolarSystem/Services/SolarSystemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/Point2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/RestPreconditions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/Tuple.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,43 +34,49 @@
     <session id="1831393070">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="23" />
+          <entry key="dummy" value="47" />
           <entry key="gitignore" value="11" />
-          <entry key="java" value="14602" />
-          <entry key="xml" value="24" />
+          <entry key="java" value="17529" />
+          <entry key="properties" value="32" />
+          <entry key="xml" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="14602" />
-          <entry key="PLAIN_TEXT" value="34" />
-          <entry key="XML" value="24" />
+          <entry key="JAVA" value="17529" />
+          <entry key="PLAIN_TEXT" value="58" />
+          <entry key="Properties" value="32" />
+          <entry key="XML" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="16" />
+          <entry key="class" value="17" />
           <entry key="gitignore" value="1" />
-          <entry key="java" value="55" />
-          <entry key="xml" value="4" />
+          <entry key="java" value="77" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="16" />
-          <entry key="JAVA" value="55" />
+          <entry key="CLASS" value="17" />
+          <entry key="JAVA" value="77" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="4" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -83,14 +93,54 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Application.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/SolarSystemController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="221">
+              <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#669#670#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Repositories/WeatherRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Models/Weather.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,63 +149,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="88" column="54" lean-forward="true" selection-start-line="88" selection-start-column="54" selection-end-line="88" selection-end-column="54" />
+            <state relative-caret-position="139">
+              <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9750#9751#0" expanded="true" />
-                <element signature="e#9784#9785#0" expanded="true" />
-                <element signature="e#9843#9844#0" expanded="true" />
-                <element signature="e#9889#9890#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.0.5.RELEASE/spring-boot-2.0.5.RELEASE.jar!/org/springframework/boot/SpringApplication.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="523" selection-start-line="523" selection-end-line="523" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-73">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2565#2566#0" expanded="true" />
+                <element signature="e#2596#2597#0" expanded="true" />
+                <element signature="e#2742#2743#0" expanded="true" />
+                <element signature="e#2788#2789#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar!/org/apache/commons/math3/geometry/euclidean/twod/hull/AbstractConvexHullGenerator2D.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/WeatherDays.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+            <state relative-caret-position="51">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Models/Planet.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Interfaces/SolarSystemInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+            <state relative-caret-position="221">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,8 +186,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Services/SolarSystemService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+            <state relative-caret-position="51">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -180,13 +200,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Singleton" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>model</find>
       <find>java</find>
       <find>controlel</find>
       <find>double</find>
@@ -212,9 +233,15 @@
       <find>maxra</find>
       <find>triangl</find>
       <find>maxTriangleSize</find>
+      <find>tuple</find>
+      <find>sample</find>
+      <find>ageDays</find>
+      <find>agedays</find>
+      <find>solarSystem.agedays</find>
     </findStrings>
     <replaceStrings>
       <replace>int</replace>
+      <replace>ageDays</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -252,13 +279,24 @@
         <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/SimpleLogger.java" />
         <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemHashSet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Services/SolarSystemService.java" />
         <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Models/Planet.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ApiError.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/RestPreconditions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ServerErrorException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Services/SolarSystemService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Interfaces/SolarSystemInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/Weather.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/WeatherDays.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Models/Weather.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/SolarSystemController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Repositories/WeatherRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
       </list>
     </option>
   </component>
@@ -281,10 +319,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2170" />
-    <option name="y" value="140" />
-    <option name="width" value="840" />
-    <option name="height" value="413" />
+    <option name="x" value="2448" />
+    <option name="y" value="133" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -442,6 +480,86 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Implementations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SolarSystem" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SolarSystem" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="SolarSystem" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SolarSystem" type="616d4139:PackageViewModuleNode" />
+              <item name="MainPackage" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Problems'; set:Problems; class com.intellij.psi.search.scope.ProblemsScope">
           <expand>
@@ -515,79 +633,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="maven-status" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="test-classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SolarSystem" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SolarSystem" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SolarSystem" type="616d4139:PackageViewModuleNode" />
-              <item name="MainPackage" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="at angle&#9;PSI&#9;JAVA://SolarSystem.Models.Planet#updateAngle&#10;pom.x&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/pom.xml&#10;planetsaligned&#9;PSI&#9;JAVA://SolarSystem.Implementations.SolarSystemManager#planetsAlignedWithSun&#10;solarsy&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Models/SolarSystem.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546878710063" />
+    <property name="SearchEverywhereHistoryKey" value="pom&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/pom.xml&#10;controller&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Controllers/MonitorController.java&#10;at angle&#9;PSI&#9;JAVA://SolarSystem.Models.Planet#updateAngle&#10;pom.x&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/pom.xml&#10;planetsaligned&#9;PSI&#9;JAVA://SolarSystem.Implementations.SolarSystemManager#planetsAlignedWithSun&#10;solarsy&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Models/SolarSystem.java" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547068762740" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
@@ -600,6 +650,7 @@
       <recent name="Controllers" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="SolarSystem.Interfaces" />
       <recent name="MainPackage.Models" />
     </key>
   </component>
@@ -650,22 +701,22 @@
     <frame x="1912" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.5134474" side_tool="true" visible="true" weight="0.2397882" />
+      <window_info id="Structure" order="0" sideWeight="0.40586796" side_tool="true" visible="true" weight="0.23827533" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.50855744" side_tool="true" weight="0.22844176" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.48655257" visible="true" weight="0.2397882" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.594132" visible="true" weight="0.23827533" />
       <window_info anchor="bottom" id="Problems" order="0" sideWeight="0.49848714" weight="0.36557376" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49924356" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49924356" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3295082" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4977307" visible="true" weight="0.3295082" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4977307" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50226927" side_tool="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3295082" />
@@ -717,10 +768,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SolarSystem/Application.java</url>
-          <line>32</line>
+          <url>file://$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/SolarSystemController.java</url>
+          <line>50</line>
           <properties />
-          <option name="timeStamp" value="51" />
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -825,38 +876,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ResourceNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/BadRequestException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/RestPreconditions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/shape/Circle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/MonitorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -888,13 +911,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/Point2D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/Point2D.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/JobLogger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2703">
@@ -902,21 +919,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/Tuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/Tuple.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/UnsupportedOperationException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
-          <folding>
-            <element signature="e#925#926#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -924,10 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="946">
           <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
-          <folding>
-            <element signature="e#5875#5876#0" expanded="true" />
-            <element signature="e#5956#5957#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -935,9 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -973,10 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-363">
           <caret line="152" column="11" selection-start-line="152" selection-start-column="11" selection-end-line="152" selection-end-column="11" />
-          <folding>
-            <element signature="e#6162#6163#0" expanded="true" />
-            <element signature="e#6199#6200#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -984,6 +980,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
           <caret line="111" column="31" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.0.5.RELEASE/spring-boot-2.0.5.RELEASE.jar!/org/springframework/boot/SpringApplication.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7905">
+          <caret line="523" selection-start-line="523" selection-end-line="523" />
         </state>
       </provider>
     </entry>
@@ -1004,70 +1007,159 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Services/SolarSystemService.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/BadRequestException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.34/tomcat-embed-core-8.5.34.jar!/javax/servlet/http/HttpServletRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ExceptionHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ApiError.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/RestPreconditions.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/ds.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Configurations/AppConfig.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/MonitorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Collections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-161">
+          <caret line="4665" column="29" selection-start-line="4665" selection-start-column="29" selection-end-line="4665" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ServerErrorException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.0.5.RELEASE/spring-boot-2.0.5.RELEASE.jar!/org/springframework/boot/SpringApplication.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="523" selection-start-line="523" selection-end-line="523" />
+        <state relative-caret-position="108">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="187">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Interfaces/SolarSystemInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Services/SolarSystemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/WeatherDays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManagerBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="88" column="54" lean-forward="true" selection-start-line="88" selection-start-column="54" selection-end-line="88" selection-end-column="54" />
+        <state relative-caret-position="139">
+          <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9750#9751#0" expanded="true" />
-            <element signature="e#9784#9785#0" expanded="true" />
-            <element signature="e#9843#9844#0" expanded="true" />
-            <element signature="e#9889#9890#0" expanded="true" />
+            <element signature="e#2565#2566#0" expanded="true" />
+            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2742#2743#0" expanded="true" />
+            <element signature="e#2788#2789#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Models/Weather.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="51">
+          <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/SolarSystemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Repositories/WeatherRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>

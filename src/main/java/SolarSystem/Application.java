@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication(scanBasePackages = {"boot.registration"})
+@SpringBootApplication(scanBasePackages = {"boot.registration","SolarSystem"})
 @EnableAutoConfiguration
 @EntityScan("SolarSystem.Utilities")
 public class Application {
@@ -18,40 +18,4 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    private static void run(String... args) throws Exception {
-
-        SolarSystemManager mySolarSystem = new SolarSystemManager("Astral", 0,0);
-        Planet ferengi = new Planet("Ferengi", 500, true, 1);
-        Planet betasoide = new Planet("Betasoide", 2000,  true, 3);
-        Planet vulcano = new Planet("Vulcano", 1000,  false, 5);
-        mySolarSystem.addPlanet(ferengi);
-        mySolarSystem.addPlanet(betasoide);
-        mySolarSystem.addPlanet(vulcano);
-        mySolarSystem.setTimeReference(0);
-        //mySolarSystem.timePass(180);
-        mySolarSystem.timePassSequence(1001);
-        System.out.println("End of the Simulation");
-
-    }
-
-//    @Bean
-//    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-//        return args -> {
-//
-//            System.out.println("Let's inspect the beans provided by Spring Boot:");
-//
-//            String[] beanNames = ctx.getBeanDefinitionNames();
-//            Arrays.sort(beanNames);
-//            for (String beanName : beanNames) {
-//                System.out.println(beanName);
-//            }
-//
-//        };
-//    }
-
-    @Bean
-    public CommandLineRunner commandLineRunner() {
-        return Application::run;
-
-    }
 }
