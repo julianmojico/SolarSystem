@@ -2,73 +2,79 @@ package SolarSystem.Controllers;
 
 import SolarSystem.Exceptions.ServerErrorException;
 import SolarSystem.Implementations.SolarSystemManager;
-import SolarSystem.Models.SolarSystem;
+import SolarSystem.Models.WeatherRecord;
 import SolarSystem.Repositories.WeatherRepository;
-import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.json.*;
-import java.util.Collections;
 
 @RestController
+@RequestMapping("/astral")
 public class SolarSystemController {
 
     @Autowired
-    private SolarSystemManager solarSystemManager;
+    private SolarSystemManager ssm;
+
     @Autowired
     private WeatherRepository weatherRepo;
 
-    private void setSolarSystemManager(SolarSystemManager scm){
-        this.solarSystemManager=scm;
+//    @RequestMapping(value = "/weather", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
+//    @ResponseBody
+//    @ResponseStatus(HttpStatus.OK)
+//    public WeatherRecord getWeather(@RequestParam(value="day", defaultValue = "1" ) int day) {
+//
+//        return weatherRepo.findById(day).get();
+//
+//    }
+
+    @RequestMapping(value = "/weather/day/{day}", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public WeatherRecord getWeather(@PathVariable(value = "day") int day) {
+
+        return weatherRepo.findById(day).get();
+
     }
 
+    @RequestMapping(value = "/weather/{weatherDay}", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
+    public String getWeatherCount(@PathVariable("weatherDay") String weatherDay) throws Exception {
+        int output = weatherRepo.countByWeatherDay(weatherDay);
+        JSONObject obj = new JSONObject();
+        obj.put("response:", output);
+        return obj.toJSONString();
 
-
-    @RequestMapping(value = "/weather", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
-    public String getWeather(@RequestParam(value="day", defaultValue = "1" ) int day) {
-
-//        weatherRepo.
-        return "test";
     }
 
-
-
-    @RequestMapping(value="/computeWeather",method= RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
-    public String weather(@RequestParam(value="days", defaultValue = "1" ) int days)  throws ServerErrorException {
+    @RequestMapping(value = "/weather/compute", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
+    public String weather(@RequestParam(value = "days", defaultValue = "3650") int days) throws ServerErrorException {
 
         //This method allows compute and persistance of the weather.
 
         String output;
         JSONObject obj = new JSONObject();
+        this.ssm.initialize("Astral", 0, 0);
 
-       try {
+        try {
 
-           SolarSystemManager scm = new SolarSystemManager("Astral",0,0);
-           this.setSolarSystemManager(scm);
-           solarSystemManager.setupSampleSystem();
-           solarSystemManager.timePassSequence(1001);
-           solarSystemManager.saveResults();
+            ssm.setupSampleSystem();
+            ssm.timePassSequence(days);
 
-       } catch (Exception e) {
-           e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
 
-           output="Request could not be processed because of internal server error."+e.getCause();
-           obj.put("response",output);
-           return obj.toJSONString();
+            output = "Request could not be processed because of internal server error." + e.getCause();
+            obj.put("response", output);
+            return obj.toJSONString();
+        }
+
+        output = "WeatherDays computed succesfully days " + days + " for SolarSystem " + ssm.getSolarSystem().getName();
+        obj.put("response", output);
+        return obj.toJSONString();
     }
 
-
-     output = "WeatherDays computed succesfully days "+days+" for SolarSystem "+ solarSystemManager.getSolarSystem().getName();
-
-
-        obj.put("response",output);
-       return obj.toJSONString();
-}
-
-    @ExceptionHandler({ ServerErrorException.class })
+    @ExceptionHandler({ServerErrorException.class})
     public void handleException() {
-        //
     }
 
 }

@@ -3,8 +3,10 @@ package SolarSystem.Implementations;
 import SolarSystem.Interfaces.SolarSystemInterface;
 import SolarSystem.Models.Planet;
 import SolarSystem.Models.SolarSystem;
-import SolarSystem.Models.Weather;
+import SolarSystem.Models.WeatherRecord;
+import SolarSystem.Repositories.WeatherRepository;
 import SolarSystem.Services.SolarSystemService;
+import SolarSystem.Utilities.WeatherDays;
 import org.apache.commons.math3.geometry.euclidean.twod.Euclidean2D;
 import org.apache.commons.math3.geometry.euclidean.twod.Line;
 import org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet;
@@ -13,7 +15,7 @@ import org.apache.commons.math3.geometry.euclidean.twod.hull.ConvexHull2D;
 import org.apache.commons.math3.geometry.euclidean.twod.hull.MonotoneChain;
 import org.apache.commons.math3.geometry.partitioning.Region;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -22,29 +24,24 @@ import java.util.logging.Logger;
 
 
 @Service
+@Scope(value = "prototype")
 //A specific implementation of SolarSystem with custom logic and calculations.
 public class SolarSystemManager implements SolarSystemService {
 
-    //    @Autowired
-    //private static final Logger logger = Logger.getLogger(SolarSystemManager.class.getName());
-    private final Logger logger = Logger.getLogger(SolarSystemManager.class.getName());
-
-
-    private SolarSystemInterface solarSystem;
-    private String name;
-    //this is the count of days passed since the beginning of this solar system
-
-    private Planet timeReference;
-    private boolean timeReferenceSet = false;
     private static final double PIPI = 2 * Math.PI;
+    private final Logger logger = Logger.getLogger(SolarSystemManager.class.getName());
     //counters for planets aligned
     public ArrayList<Integer> planetsAligned;
     public ArrayList<Integer> planetsAlignedWithSun;
+    //this is the count of days passed since the beginning of this solar system
     public ArrayList<Integer> rainyDays;
     public HashMap<Integer, Double> maxRainyDays;
-
     @Autowired
-    Weather weather;
+    private WeatherRepository weatherRepository;
+    private SolarSystemInterface solarSystem;
+    private String name;
+    private Planet timeReference;
+    private boolean timeReferenceSet = false;
     private double maxTriangleSize;
 
     public Planet getTimeReference() {
@@ -75,18 +72,20 @@ public class SolarSystemManager implements SolarSystemService {
 
     //TODO: ESTA INSTANCIA LOGGER ES UNICA SI CREO DOS SOLARSYSTEMIMPL?
 
-    @Autowired
-    public SolarSystemManager(SolarSystem solarSystem) {
-        this.solarSystem = solarSystem;
+
+    public void SolarSystemManager() {
+
     }
 
-    public SolarSystemManager(String name, double x, double y) {
-
+    public void initialize(String name, double x, double y) {
 
         this.name = name;
         Vector2D solarCenter = new Vector2D(x, y);
         SolarSystem ss = new SolarSystem(name, solarCenter);
         setSolarSystem(ss);
+
+        //drop collection in case weather was previously computed with different values
+        weatherRepository.deleteAll();
 
         //LinkedHashSet classes do not allow duplicates and allows orderered access to element
         solarSystem.setPlanets(new LinkedHashSet());
@@ -94,31 +93,33 @@ public class SolarSystemManager implements SolarSystemService {
         planetsAlignedWithSun = new ArrayList<Integer>();
         rainyDays = new ArrayList<Integer>();
         maxRainyDays = new HashMap<Integer, Double>();
-        //map inicialization needed in this case
+        //map inicialization
         maxTriangleSize = 0;
         logger.log(Level.INFO, "SolarSystem created and initiated");
     }
 
     @Override
     public void timePassSequence(int days) {
-        //move the planets day by day. Initial planets positions is always aligned so its not computed.
 
+        //move the planets day by day. Initial planets positions is always aligned so its not computed.
         int ageDays = solarSystem.getAgeDays();
         if (days > 0) {
             if (timeReferenceSet) {
-
                 for (int i = 0; i < days; i++) {
 
-                    //encapsular en un setter
-                    solarSystem.setAgeDays(ageDays++);
+                    //in case there is intersection between the weather conditions, the first case is prioritized
+                    if (!planetsAlignedWithSun()) {
+                        if (!planetsAligned()) {
+                            sunInsideTriangle();
+                            populateMaxRainyDay();
+                        }
+                    }
+                    saveResults();
                     solarSystem.getPlanets().forEach(planet -> {
                         planet.updateAngle();
                     });
-
-                    planetsAligned();
-                    planetsAlignedWithSun();
-                    sunInsideTriangle();
-                    saveResults();
+                    ageDays++;
+                    solarSystem.setAgeDays(ageDays);
                 }
             } else {
                 //TODO: ESTA CATCHEADA?
@@ -129,12 +130,28 @@ public class SolarSystemManager implements SolarSystemService {
         }
     }
 
+    private void populateMaxRainyDay() {
+
+        this.maxRainyDays.forEach(
+                (day, weather) -> {
+                    WeatherRecord wr = new WeatherRecord(day, WeatherDays.MAX_RAIN);
+                    if (weatherRepository.existsById(wr.getDay())) {
+                        weatherRepository.deleteById(wr.getDay());
+                        weatherRepository.save(wr);
+                    } else {
+                        weatherRepository.save(wr);
+                    }
+                });
+    }
+
+
     //logic of planet alignment against each other (not with the sun)
-    public void planetsAligned() {
+    public boolean planetsAligned() {
         //attempts line alignment using the first planet in the list against the rest of the planets (not sun alignment)
 
         int ageDays = solarSystem.getAgeDays();
         Iterator<Planet> planetsIterator = solarSystem.getPlanets().iterator();
+        boolean planetsAligned = true;
 
         if (solarSystem.getPlanets().size() > 2) {
 
@@ -142,8 +159,7 @@ public class SolarSystemManager implements SolarSystemService {
             Vector2D pivotLocation = pivot.getPointLocation();
             Planet second = planetsIterator.next();
             Vector2D secondPlanetLocation = second.getPointLocation();
-            Line referenceLine = new Line(pivotLocation, secondPlanetLocation, 0.1);
-            boolean planetsAligned = true;
+            Line referenceLine = new Line(pivotLocation, secondPlanetLocation, 50);
 
             while (planetsIterator.hasNext() && planetsAligned == true) {
                 Planet planet = planetsIterator.next();
@@ -153,16 +169,23 @@ public class SolarSystemManager implements SolarSystemService {
             //save this day if the planets were aligned
             if (planetsAligned) {
                 String solarSystemName = solarSystem.getName();
-                this.planetsAligned.add(ageDays);
+//                this.planetsAligned.add(ageDays);
+                WeatherRecord wr = new WeatherRecord(ageDays, WeatherDays.MILD);
+                if (weatherRepository.existsById(wr.getDay())) {
+                    weatherRepository.deleteById(wr.getDay());
+                    weatherRepository.save(wr);
+                } else {
+                    weatherRepository.save(wr);
+                }
+
                 logger.log(Level.INFO, "Day " + ageDays + ": Planets are aligned in SolarSystem " + solarSystemName);
             }
-        } else {
-
         }
+        return planetsAligned;
     }
 
     @Override
-    public void planetsAlignedWithSun() {
+    public boolean planetsAlignedWithSun() {
 
         int ageDays = solarSystem.getAgeDays();
         boolean alignedWithTheSun = true;
@@ -175,10 +198,19 @@ public class SolarSystemManager implements SolarSystemService {
         }
         if (alignedWithTheSun) {
 
-            this.planetsAlignedWithSun.add(ageDays);
+//            this.planetsAlignedWithSun.add(ageDays);
+            WeatherRecord wr = new WeatherRecord(ageDays, WeatherDays.DRY);
+            if (weatherRepository.existsById(wr.getDay())) {
+                weatherRepository.deleteById(wr.getDay());
+                weatherRepository.save(wr);
+            } else {
+                weatherRepository.save(wr);
+            }
             logger.log(Level.INFO, "Day: " + ageDays + " . All the planets are aligned with the sun at angle " + first.normalizedAngle);
+            return true;
+        } else {
+            return false;
         }
-
     }
 
     @Override
@@ -199,41 +231,27 @@ public class SolarSystemManager implements SolarSystemService {
             Vector2D sunCenter = new Vector2D(0, 0);
             Iterator<Planet> it = solarSystem.getPlanets().iterator();
 
-
             Vector2D p1 = it.next().getPointLocation();
             Vector2D p2 = it.next().getPointLocation();
             Vector2D p3 = it.next().getPointLocation();
 
-//            Vector2D[] vertices = {p1,p2,p3};
             PolygonsSet plane = new PolygonsSet(0.0001, p1, p2, p3);
-
 
             Collection<Vector2D> vertices = new ArrayList<Vector2D>();
             vertices.add(p1);
             vertices.add(p2);
             vertices.add(p3);
 
-            //ConvexHull2D hull = new ConvexHull2D(vertices,0.0001);
-
-            //esta tira exception
             ConvexHull2D hull = new MonotoneChain().generate(vertices);
 
             //this check is to avoid a bug where the generate() from hull produces a smaller vertices array than expected
             if (hull.getVertices().length == vertices.size()) {
 
                 int ageDays = solarSystem.getAgeDays();
-                if (ageDays == 359) {
-                    System.out.println("debug");
-                }
-
                 Region<Euclidean2D> region = hull.createRegion();
-
-
                 Region.Location sunInside = region.checkPoint(sunCenter);
 
-
                 //check if the size of the triangle is max.
-                // double currentTriangleSize = plane.getSize();
                 double currentTriangleSize = region.getSize();
 
                 if (currentTriangleSize >= maxTriangleSize) {
@@ -245,14 +263,22 @@ public class SolarSystemManager implements SolarSystemService {
                     }
                     maxRainyDays.put(ageDays, maxTriangleSize);
                 }
-
+                WeatherRecord wr = null;
                 if (sunInside == Region.Location.INSIDE) {
-                    rainyDays.add(ageDays);
-                    logger.log(Level.INFO, "Day " + ageDays + " . Rainy day computed.");
+
+                    wr = new WeatherRecord(ageDays, WeatherDays.RAINY);
+                    logger.log(Level.INFO, "Day " + ageDays + " . Sun is inside planet triangulation");
+                } else {
+                    wr = new WeatherRecord(ageDays, WeatherDays.NONE);
+                    logger.log(Level.INFO, "Day " + ageDays + " . None day computed.");
                 }
 
-            } else {
-                System.out.println("Here is the bug");
+                if (weatherRepository.existsById(wr.getDay())) {
+                    weatherRepository.deleteById(wr.getDay());
+                    weatherRepository.save(wr);
+                } else {
+                    weatherRepository.save(wr);
+                }
             }
         } else {
             logger.log(Level.WARNING, "Triangulation is possible when solar system contains 3 planets only");
@@ -270,7 +296,7 @@ public class SolarSystemManager implements SolarSystemService {
     public void setupSampleSystem() {
 
         Planet ferengi = new Planet("Ferengi", 500, true, 1);
-        Planet betasoide = new Planet("Betasoide", 2000, true, 3);
+        Planet betasoide = new Planet("Betasoide", 2000, true, 2);
         Planet vulcano = new Planet("Vulcano", 1000, false, 5);
         addPlanet(ferengi);
         addPlanet(betasoide);
@@ -280,10 +306,18 @@ public class SolarSystemManager implements SolarSystemService {
 
     public void saveResults() {
 
+        //TODO: save maxRainyDays in repo
         HashMap results = new HashMap();
 
         planetsAlignedWithSun.forEach(
-                item -> {}
+                item -> {
+                }
         );
+    }
+
+    @Autowired
+    public void setWeatherRepository(WeatherRepository weatherRepository) {
+
+        this.weatherRepository = weatherRepository;
     }
 }

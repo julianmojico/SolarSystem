@@ -2,30 +2,26 @@ package SolarSystem.Models;
 
 import SolarSystem.Interfaces.SolarSystemInterface;
 import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.Collection;
 
 @Component
 //@Scope(value = "prototype")
-public class SolarSystem  implements SolarSystemInterface {
+public class SolarSystem implements SolarSystemInterface {
 
+    public int ageDays;
+    public String name;
     //Generic class so any implementation of collection can be chosen.
     private Collection<Planet> planets;
     private Vector2D solarCenter;
-    public int ageDays;
-    public String name;
 
+    public SolarSystem() {
+    }
 
-    public  SolarSystem(){};
-    public SolarSystem(String name, Vector2D solarCenter)
+    ;
 
-    {
-
+    public SolarSystem(String name, Vector2D solarCenter) {
         this.name = name;
         this.solarCenter = solarCenter;
     }
@@ -54,7 +50,7 @@ public class SolarSystem  implements SolarSystemInterface {
 
     @Override
     public void setAgeDays(int days) {
-        this.ageDays=days;
+        this.ageDays = days;
     }
 
     @Override

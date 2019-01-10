@@ -11,7 +11,7 @@ public class JobLoggerService {
 
     public static void init() {
 
-        Map<String,String> dbParamsMap = new HashMap<String,String>();
+        Map<String, String> dbParamsMap = new HashMap<String, String>();
 
         dbParamsMap.put("userName", "root");
         dbParamsMap.put("password", "qwe123asd");
@@ -29,15 +29,14 @@ public class JobLoggerService {
             JobLogger.configLogger(dbParamsMap);
             JobLogger instance = JobLogger.getInstance();
 
-            instance.LogMessage("Probando info",Level.INFO);
-            instance.LogMessage("Probando WARNING",Level.WARNING);
-            instance.LogMessage("Probando SEVERE",Level.SEVERE);
+            instance.LogMessage("Probando info", Level.INFO);
+            instance.LogMessage("Probando WARNING", Level.WARNING);
+            instance.LogMessage("Probando SEVERE", Level.SEVERE);
 
         } catch (Exception e) {
 
             e.printStackTrace();
         }
-
 
 
     }

@@ -20,7 +20,7 @@ public class JobLogger {
     //Parametrizacion del Map para evitar errores de tipo
 
     private static boolean configured;
-    private static Map<String,String> dbParams;
+    private static Map<String, String> dbParams;
     private static Logger logger;
     private static Connection connection = null;
     private static FileHandler fh;
@@ -32,9 +32,9 @@ public class JobLogger {
     private JobLogger() {
     }
 
-    public static void configLogger(Map<String,String> inputParams) throws InstantiationException {
+    public static void configLogger(Map<String, String> inputParams) throws InstantiationException {
 
-        if (instance==null) {
+        if (instance == null) {
 
             logger = Logger.getLogger("MyLog");
             dbParams = inputParams;
@@ -44,19 +44,22 @@ public class JobLogger {
 
             try {
 
-                if(inputParams.get("logToDatabase") == "true" ) {
+                if (inputParams.get("logToDatabase") == "true") {
                     createDBConnection();
-                };
+                }
+                ;
 
-                if(inputParams.get("logToFile") == "true") {
+                if (inputParams.get("logToFile") == "true") {
 
                     logger.addHandler(createFileHandler());
-                };
+                }
+                ;
 
-                if(inputParams.get("logToConsole") == "true") {
+                if (inputParams.get("logToConsole") == "true") {
 
                     logger.addHandler(createConsoleHandler());
-                };
+                }
+                ;
 
                 //Guardar settings si fue satisfactorio
                 configured = true;
@@ -72,17 +75,16 @@ public class JobLogger {
 
         } else {
             InstantiationException e = new InstantiationException("Cannot configure logger since it's already instantiated");
-            throw  e;
+            throw e;
         }
     }
 
 
-
-    public static Map<String,String> getDbParams() {
+    public static Map<String, String> getDbParams() {
         return dbParams;
     }
 
-    public static void setDbParams(Map<String,String> dbParams) {
+    public static void setDbParams(Map<String, String> dbParams) {
         JobLogger.dbParams = dbParams;
     }
 
@@ -92,10 +94,10 @@ public class JobLogger {
 
         if (configured == false) {
             InstantiationException e = new InstantiationException("Cannot get Logger instance since it has not been configured");
-            throw  e;
+            throw e;
         } else {
 
-            if (instance==null) {
+            if (instance == null) {
 
                 instance = new JobLogger();
             }
@@ -138,9 +140,7 @@ public class JobLogger {
 
             fh = new FileHandler(filepath);
 
-        }
-
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -154,7 +154,7 @@ public class JobLogger {
 
     //crear varios metodos para handlers distintos
 
-    public void LogMessage(String messageText,Level level) {
+    public void LogMessage(String messageText, Level level) {
 
         messageText.trim();
 
@@ -168,7 +168,7 @@ public class JobLogger {
         fh.flush();
         ch.flush();
 
-        if(dbParams.get("logToDatabase").toString() == "true") {
+        if (dbParams.get("logToDatabase").toString() == "true") {
 
             //obtener el loglevel para guardarlo en la base
             int t = level.intValue();
@@ -176,7 +176,7 @@ public class JobLogger {
             try {
                 stmt = connection.createStatement();
                 stmt.setQueryTimeout(3);
-                String query = "insert into travellersdonations.Log_Values VALUES ('" + messageText + "',"  + String.valueOf(t) + ");";
+                String query = "insert into travellersdonations.Log_Values VALUES ('" + messageText + "'," + String.valueOf(t) + ");";
                 stmt.executeUpdate(query);
 
                 //TODO: verificar que no fallo el insert
