@@ -114,7 +114,6 @@ public class SolarSystemManager implements SolarSystemService {
                             populateMaxRainyDay();
                         }
                     }
-                    saveResults();
                     solarSystem.getPlanets().forEach(planet -> {
                         planet.updateAngle();
                     });
@@ -302,17 +301,6 @@ public class SolarSystemManager implements SolarSystemService {
         addPlanet(betasoide);
         addPlanet(vulcano);
         setTimeReference(0);
-    }
-
-    public void saveResults() {
-
-        //TODO: save maxRainyDays in repo
-        HashMap results = new HashMap();
-
-        planetsAlignedWithSun.forEach(
-                item -> {
-                }
-        );
     }
 
     @Autowired

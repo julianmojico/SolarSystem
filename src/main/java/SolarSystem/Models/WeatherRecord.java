@@ -5,7 +5,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Objects;
+
 @Document(collection = "WeatherRecord")
+//@Document(collection = "#{solarSystemManager.getSolarSystem().getName()}")
 
 public class WeatherRecord {
 
@@ -32,4 +35,22 @@ public class WeatherRecord {
 //    public String toString() {
 //        return String.format("The day %s will be %s",day,weatherDay);
 //    }
+
+    @Override
+    public boolean equals(Object o){
+        // self check
+        if (this == o)
+            return true;
+        // null check
+        if (o == null)
+            return false;
+        // type check and cast
+        if (getClass() != o.getClass())
+            return false;
+        WeatherRecord weatherRecord = (WeatherRecord) o;
+        // field comparison
+        return Objects.equals(day, weatherRecord.day)
+                && Objects.equals(weatherDay, weatherRecord.weatherDay);
+
+    }
 }

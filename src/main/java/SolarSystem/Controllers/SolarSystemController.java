@@ -15,30 +15,20 @@ public class SolarSystemController {
 
     @Autowired
     private SolarSystemManager ssm;
-
     @Autowired
     private WeatherRepository weatherRepo;
-
-//    @RequestMapping(value = "/weather", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
-//    @ResponseBody
-//    @ResponseStatus(HttpStatus.OK)
-//    public WeatherRecord getWeather(@RequestParam(value="day", defaultValue = "1" ) int day) {
-//
-//        return weatherRepo.findById(day).get();
-//
-//    }
 
     @RequestMapping(value = "/weather/day/{day}", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public WeatherRecord getWeather(@PathVariable(value = "day") int day) {
+    public WeatherRecord getWeather(@PathVariable(value = "day") int day) throws ServerErrorException {
 
         return weatherRepo.findById(day).get();
 
     }
 
     @RequestMapping(value = "/weather/{weatherDay}", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
-    public String getWeatherCount(@PathVariable("weatherDay") String weatherDay) throws Exception {
+    public String getWeatherCount(@PathVariable("weatherDay") String weatherDay) throws ServerErrorException {
         int output = weatherRepo.countByWeatherDay(weatherDay);
         JSONObject obj = new JSONObject();
         obj.put("response:", output);
@@ -47,7 +37,7 @@ public class SolarSystemController {
     }
 
     @RequestMapping(value = "/weather/compute", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
-    public String weather(@RequestParam(value = "days", defaultValue = "3650") int days) throws ServerErrorException {
+    public String compute(@RequestParam(value = "days", defaultValue = "3650") int days) throws ServerErrorException {
 
         //This method allows compute and persistance of the weather.
 
