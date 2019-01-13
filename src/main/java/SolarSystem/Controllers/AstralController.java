@@ -1,5 +1,7 @@
 package SolarSystem.Controllers;
 
+import SolarSystem.Exceptions.BadRequestException;
+import SolarSystem.Exceptions.ResourceNotFoundException;
 import SolarSystem.Exceptions.ServerErrorException;
 import SolarSystem.Implementations.SolarSystemManager;
 import SolarSystem.Models.WeatherRecord;
@@ -9,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/astral")
-public class SolarSystemController {
+public class AstralController {
 
     @Autowired
     private SolarSystemManager ssm;
@@ -21,14 +25,24 @@ public class SolarSystemController {
     @RequestMapping(value = "/weather/day/{day}", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public WeatherRecord getWeather(@PathVariable(value = "day") int day) throws ServerErrorException {
+    public WeatherRecord getWeather(@PathVariable(value = "day") Integer day) throws Exception {
 
-        return weatherRepo.findById(day).get();
-
+        if (!(day instanceof Integer)) {
+            throw new BadRequestException();
+        } else {
+            Optional<WeatherRecord> result = weatherRepo.findById(day);
+            if (result.isPresent()){
+                return result.get();
+            } else {
+                throw new ResourceNotFoundException();
+            }
+        }
     }
 
     @RequestMapping(value = "/weather/{weatherDay}", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     public String getWeatherCount(@PathVariable("weatherDay") String weatherDay) throws ServerErrorException {
+
+        //In case of exception, the ExceptionHandler will catch.
         int output = weatherRepo.countByWeatherDay(weatherDay);
         JSONObject obj = new JSONObject();
         obj.put("response:", output);
@@ -43,10 +57,9 @@ public class SolarSystemController {
 
         String output;
         JSONObject obj = new JSONObject();
-        this.ssm.initialize("Astral", 0, 0);
 
         try {
-
+            this.ssm.initialize("Astral", 0, 0);
             ssm.setupSampleSystem();
             ssm.timePassSequence(days);
 

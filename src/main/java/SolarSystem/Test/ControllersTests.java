@@ -1,5 +1,6 @@
-package SolarSystem.Tests;
+package SolarSystem.Test;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,10 +21,6 @@ public class ControllersTests {
 
     @Autowired
     private MockMvc mvc;
-
-
-//    @MockBean
-//    private SolarSystemController solarSystemController;
 
     @Test
     public void getMonitor() throws Exception {
@@ -44,7 +40,7 @@ public class ControllersTests {
                 .andReturn();
     }
 
-    @Test
+    @After
     public void weatherDay() throws Exception {
         mvc.perform(get("/astral/weather/day/0").accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isOk())

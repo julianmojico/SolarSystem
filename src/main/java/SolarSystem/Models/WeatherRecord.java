@@ -7,8 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
-@Document(collection = "WeatherRecord")
-//@Document(collection = "#{solarSystemManager.getSolarSystem().getName()}")
+//@Document(collection = "WeatherRecord"+this.getSolarSystemName())
+//@Document(collection = "#{solarSystemManager.getSolarSystem().getSolarSystemName()}")
+@Document
 
 public class WeatherRecord {
 
@@ -53,4 +54,5 @@ public class WeatherRecord {
                 && Objects.equals(weatherDay, weatherRecord.weatherDay);
 
     }
+
 }

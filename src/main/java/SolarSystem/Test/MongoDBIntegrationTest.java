@@ -1,9 +1,8 @@
-package SolarSystem.Tests;
+package SolarSystem.Test;
 
 import SolarSystem.Models.WeatherRecord;
 import SolarSystem.Repositories.WeatherRepository;
 import SolarSystem.Utilities.WeatherDays;
-import com.mongodb.DBCollection;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.junit.After;
@@ -38,11 +37,6 @@ public class MongoDBIntegrationTest {
         mongoTemplate.dropCollection(collectionName);
     }
 
-    @After
-
-    public void after() {
-
-    }
 
     @Test
     public void checkMongoTemplate() {
@@ -61,6 +55,16 @@ public class MongoDBIntegrationTest {
         assert(foundRecord.isPresent());;
         assertEquals(foundRecord.get(),wr);
 
+    }
+
+    @After
+
+    public void after() {
+        WeatherRecord wr = new WeatherRecord(1, WeatherDays.MILD);
+        weatherRepo.save(wr);
+        weatherRepo.delete(wr);
+        Optional foundRecord = weatherRepo.findById(1);
+        assertTrue(!foundRecord.isPresent());;
     }
 
 }
