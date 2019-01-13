@@ -1,6 +1,5 @@
 package SolarSystem.Models;
 
-import javafx.scene.shape.Circle;
 import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -15,7 +14,6 @@ public class Planet {
     private static final double PIPI = 2 * Math.PI;
     private static final Logger logger = Logger.getLogger(Planet.class.getName());
     public String name;
-    public Circle orbit;
     public Point2D actualPosition;
     //radians angle
     public double angleRads;
@@ -39,7 +37,6 @@ public class Planet {
         this.distanceToSun = distanceToSun;
         this.clockwise = clockwise;
         //asumming 0,0 is always the relative position of the sun in the solar system
-        orbit = new Circle(0, 0, distanceToSun);
         angle = 0;
     }
 

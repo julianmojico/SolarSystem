@@ -50,6 +50,20 @@ public class AstralController {
 
     }
 
+    @RequestMapping(value="/weather", method = RequestMethod.DELETE, headers = "Accept=application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteWeather() throws ServerErrorException {
+
+        try {
+            weatherRepo.deleteAll();
+        } catch (Exception e) {
+            throw new ServerErrorException();
+        }
+        JSONObject obj = new JSONObject();
+        obj.put("response:", "All weather records in Astral Solar System were deleted");
+        return obj.toJSONString();
+    }
+
     @RequestMapping(value = "/weather/compute", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     public String compute(@RequestParam(value = "days", defaultValue = "3650") int days) throws ServerErrorException {
 

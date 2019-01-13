@@ -8,8 +8,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication(scanBasePackages = {"boot.registration", "SolarSystem", "SolarSystem.Repositories"})
 @EnableAutoConfiguration
 @EnableMongoRepositories()
-
-
 public class Application {
 
     public static void main(String[] args) {

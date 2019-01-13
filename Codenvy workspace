@@ -1,0 +1,63 @@
+{
+  "name": "SolarSystem",
+  "environments": {
+    "default": {
+      "machines": {
+        "dev-machine": {
+          "attributes": {
+            "memoryLimitBytes": "2147483648"
+          },
+          "servers": {},
+          "agents": [
+            "org.eclipse.che.ssh",
+            "org.eclipse.che.ws-agent",
+            "org.eclipse.che.terminal",
+            "org.eclipse.che.exec"
+          ]
+        }
+      },
+      "recipe": {
+        "type": "dockerfile",
+        "content": "FROM registry.centos.org/che-stacks/spring-boot\nRUN sudo mkdir -p /home/user/.ssh; sudo touch /home/user/.ssh/authorized_keys; sudo chown -R user:user /home/user; sudo chmod 0700 /home/user/.ssh; sudo chmod 0700 /home/user/.ssh/authorized_keys; sudo chmod 0700 /home/user\n",
+        "contentType": "text/x-dockerfile"
+      }
+    }
+  },
+  "defaultEnv": "default",
+  "commands": [
+    {
+      "name": "run",
+      "type": "custom",
+      "attributes": {
+        "goal": "Run",
+        "previewUrl": "http://${server.port.8080}"
+      },
+      "commandLine": "java -jar ${current.project.path}/target/*.jar"
+    },
+    {
+      "name": "build",
+      "type": "custom",
+      "attributes": {
+        "goal": "Build",
+        "previewUrl": ""
+      },
+      "commandLine": "scl enable rh-maven33 'mvn clean install -f ${current.project.path}'"
+    }
+  ],
+  "projects": [
+    {
+      "name": "cepix-SolarSystem",
+      "type": "blank",
+      "path": "/cepix-SolarSystem",
+      "attributes": {},
+      "source": {
+        "location": "https://github.com/cepix/SolarSystem.git",
+        "type": "git",
+        "parameters": {}
+      },
+      "description": "SolarSystem simulation model based in Java used to predict weather",
+      "mixins": [],
+      "problems": []
+    }
+  ]
+}
