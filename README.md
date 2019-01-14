@@ -42,6 +42,8 @@ sudo mvn install
 ## :eight: Point browser to Swagger UI and start using REST API :bowtie:
 `http://hostname:8080/swagger-ui.html`
 
+![alt text](https://github.com/cepix/SolarSystem/blob/master/solarsystem%20swagger.jpg)
+
 # Pending items:
 
 - [ ] Remove hard depency by parametrizesing SolarSystemManager.initiate()
