@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-public class ControllersTests {
+public class ControllersTest {
 
     @Autowired
     private MockMvc mvc;
@@ -37,7 +37,7 @@ public class ControllersTests {
         mvc.perform(get("/astral/weather/compute?days=5").accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType( MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(jsonPath("$.response").value("WeatherDays computed succesfully days 3650 for SolarSystem Astral"))
+                .andExpect(jsonPath("$.response").value("WeatherDays computed succesfully days 5 for SolarSystem Astral"))
                 .andReturn();
     }
 
