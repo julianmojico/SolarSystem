@@ -1,14 +1,14 @@
 ## SolarSystem
 SolarSystem simulation model based in Java used to predict weather
 
-## Install and start mongodb
+## :one: Install and start mongodb
 ```
 sudo apt-get install -y mongodb-org
 sudo mkdir -p /data/db
 mongod
 ```
 
-## Create database
+## :two: Create database :white_check_mark:
 
 ```
 mongo
@@ -18,29 +18,32 @@ use SolarSystem
 ```
 db.enableFreeMonitoring()
 ```
--The above command provides a permanent link to monitor your db stats online.
+-The above command provides a permanent link to monitor your db stats online. :bar_chart:
 
-## Install maven
+## :three: Install maven :wrench:
 `sudo apt install maven`
 
-## clone repo
+## :four: clone repo :page_facing_up:
 `sudo git clone https://github.com/cepix/SolarSystem/`
 
-## edit your profile (default is localhost)
+## :five: edit your profile (default is localhost) :bangbang:
 -edit env profile in application.properties and create application-[profile].properties properties depending on your enviroment
 
-## build app
+## :six: build app :four_leaf_clover:
 ```
 sudo mvn verify
 sudo mvn test
 sudo mvn install
 ```
 
-## start app
+## :seven: start app :rocket:
 `nohup java -jar /var/www/SolarSystem/target/SolarSystem-1.0-SNAPSHOT.jar &`
 
-## Point browser to:
+## :eight: Point browser to Swagger UI and start using REST API :bowtie:
 `http://hostname:8080/swagger-ui.html`
 
+# Pending items:
 
-
+- [ ] Remove hard depency by parametrizesing SolarSystemManager.initiate()
+- [ ] Remove hard depency by parametrizesing SolarSystemController
+- [ ] Remove hard depency by parametrizesing WeatherRecord @Document
