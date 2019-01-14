@@ -1,5 +1,6 @@
 package SolarSystem.Test;
 
+import SolarSystem.Application;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = Application.class)
 public class ControllersTests {
 
     @Autowired
@@ -33,7 +34,7 @@ public class ControllersTests {
 
     @Test
     public void compute() throws Exception {
-        mvc.perform(get("/astral/weather/compute").accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        mvc.perform(get("/astral/weather/compute?days=5").accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType( MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.response").value("WeatherDays computed succesfully days 3650 for SolarSystem Astral"))

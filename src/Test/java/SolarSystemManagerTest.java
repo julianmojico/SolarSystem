@@ -1,5 +1,6 @@
 package SolarSystem.Test;
 
+import SolarSystem.Application;
 import SolarSystem.Implementations.SolarSystemManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +16,7 @@ import static org.junit.Assert.fail;
 
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = Application.class)
 public class SolarSystemManagerTest {
 
     @Autowired
