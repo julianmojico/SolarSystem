@@ -4,7 +4,7 @@
     <list default="true" id="444f24cd-390a-41af-a662-415e74ce0d95" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-localhost.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-localhost.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-production.properties" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,9 +37,9 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="132" />
-          <entry key="gitignore" value="49" />
+          <entry key="gitignore" value="51" />
           <entry key="java" value="26219" />
-          <entry key="properties" value="609" />
+          <entry key="properties" value="625" />
           <entry key="xml" value="49" />
           <entry key="yaml" value="10" />
         </counts>
@@ -47,8 +47,8 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="26219" />
-          <entry key="PLAIN_TEXT" value="181" />
-          <entry key="Properties" value="609" />
+          <entry key="PLAIN_TEXT" value="183" />
+          <entry key="Properties" value="625" />
           <entry key="XML" value="49" />
           <entry key="YAML" value="10" />
         </counts>
@@ -57,9 +57,9 @@
         <counts>
           <entry key="class" value="19" />
           <entry key="com" value="3" />
-          <entry key="gitignore" value="4" />
+          <entry key="gitignore" value="5" />
           <entry key="java" value="169" />
-          <entry key="properties" value="7" />
+          <entry key="properties" value="8" />
           <entry key="xml" value="12" />
           <entry key="yaml" value="1" />
         </counts>
@@ -68,8 +68,8 @@
         <counts>
           <entry key="CLASS" value="19" />
           <entry key="JAVA" value="169" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Properties" value="7" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="Properties" value="8" />
           <entry key="XML" value="12" />
           <entry key="YAML" value="1" />
           <entry key="gcs-bucket-file" value="3" />
@@ -89,96 +89,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="35" selection-start-column="35" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application-production.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/3.6.4/mongodb-driver-core-3.6.4-sources.jar!/com/mongodb/connection/SaslAuthenticator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="51" column="75" lean-forward="true" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
-              <folding>
-                <element signature="e#1635#2967#0" expanded="true" />
-                <element signature="e#2966#2967#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/3.6.4/mongodb-driver-core-3.6.4-sources.jar!/com/mongodb/connection/SocketStream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/3.6.4/mongodb-driver-core-3.6.4-sources.jar!/com/mongodb/connection/InternalStreamConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2206">
-              <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.0.5.RELEASE/spring-boot-autoconfigure-2.0.5.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/mongo/MongoProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver/3.6.4/mongodb-driver-3.6.4-sources.jar!/com/mongodb/MongoClientOptions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-527">
-              <caret line="81" column="36" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="36" />
-              <folding>
-                <element signature="e#15134#15135#0" expanded="true" />
-                <element signature="e#15170#15171#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver/3.6.4/mongodb-driver-3.6.4-sources.jar!/com/mongodb/MongoClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
-              <folding>
-                <element signature="e#5916#5917#0" expanded="true" />
-                <element signature="e#6112#6113#0" expanded="true" />
-                <element signature="e#6157#6158#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="298">
+              <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -656,7 +571,7 @@
     <property name="ACTIVE_CLOUD_PROJECT_NAME" value="SolarSystem" />
     <property name="ACTIVE_CLOUD_PROJECT_NUMBER" value="171569349973" />
     <property name="SearchEverywhereHistoryKey" value="spring.data.mongodb.uri&#9;PSI&#9;JAVA://org.springframework.data.mongodb.config.MongoDbFactoryParser#getMongoUri&#10;getSocketTimeout&#9;PSI&#9;JAVA://com.mongodb.MongoClientOptions#getSocketTimeout&#10;MongoProperties&#9;PSI&#9;JAVA://org.springframework.boot.autoconfigure.mongo.MongoProperties&#10;pom&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/pom.xml&#10;*exception*&#9;PSI&#9;JAVA://com.sun.javafx.tk.quantum.PrismImageLoader2#exception&#10;application.pro&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/resources/application.properties&#10;appl&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Application.java&#10;controller&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Controllers/MonitorController.java&#10;at angle&#9;PSI&#9;JAVA://SolarSystem.Models.Planet#updateAngle&#10;pom.x&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/pom.xml&#10;planetsaligned&#9;PSI&#9;JAVA://SolarSystem.Implementations.SolarSystemManager#planetsAlignedWithSun&#10;solarsy&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Models/SolarSystem.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547435306998" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547436159383" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/SolarSystem/Test" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -779,6 +694,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.46721312" side_tool="true" weight="0.27458397" />
       <window_info id="Image Layers" order="1" />
@@ -1236,13 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-production.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1264,10 +1173,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-production.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="298">
+          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
         </state>
       </provider>
     </entry>
