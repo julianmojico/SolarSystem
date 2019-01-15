@@ -105,7 +105,7 @@ public class SolarSystemManager implements SolarSystemService {
         int ageDays = solarSystem.getAgeDays();
         if (days > 0) {
             if (timeReferenceSet) {
-                for (int i = 0; i < days; i++) {
+                for (int i = 0; i <= days; i++) {
 
                     //in case there is intersection between the weather conditions, the first case is prioritized
                     if (!planetsAlignedWithSun()) {

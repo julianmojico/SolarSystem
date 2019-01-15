@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/astral")
-public class AstralController {
+public class WeatherController {
 
     @Autowired
     private SolarSystemManager ssm;
