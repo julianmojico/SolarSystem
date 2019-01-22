@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="444f24cd-390a-41af-a662-415e74ce0d95" name="Default Changelist" comment="SolarSystemManager decoupled; math functions go to GeometryService&#10;Remove logger, using spring factorylogger&#10;Improve testing: check if ammount of computed days exists&#10;Deleted &quot;monitor&quot; controller&#10;Global exception handling with @ControllerAdvice&#10;Test classes repackaged&#10;Added Exceptions test cases">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/RestResponseEntityExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/StringResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/GeometryService.java" afterDir="false" />
+    <list default="true" id="444f24cd-390a-41af-a662-415e74ce0d95" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Test/java/SolarSystem/Tests/MongoDBIntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/java/SolarSystem/Tests/SolarSystemManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/java/SolarSystem/Tests/WeatherControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/java/MongoDBIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/java/SolarSystem/MongoDBIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/java/SolarSystemManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/java/SolarSystem/SolarSystemManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/java/WeatherControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/java/SolarSystem/WeatherControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/java/SolarSystem/MongoDBIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/java/SolarSystem/SolarSystemManagerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/java/SolarSystem/WeatherControllerTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Configurations/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/MonitorController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/WeatherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ResourceNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/ServerErrorException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/Planet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/Planet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/SolarSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/WeatherRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Models/WeatherRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Services/JobLoggerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/JobLogger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/SimpleLogger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/WeatherDays.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SolarSystem/Utilities/WeatherDays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SolarSystem/UserInterface/LinesComponent.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -60,7 +48,7 @@
         <counts>
           <entry key="dummy" value="157" />
           <entry key="gitignore" value="51" />
-          <entry key="java" value="30476" />
+          <entry key="java" value="30889" />
           <entry key="properties" value="634" />
           <entry key="txt" value="5" />
           <entry key="xml" value="54" />
@@ -69,7 +57,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="30476" />
+          <entry key="JAVA" value="30889" />
           <entry key="PLAIN_TEXT" value="213" />
           <entry key="Properties" value="634" />
           <entry key="XML" value="54" />
@@ -81,7 +69,7 @@
           <entry key="class" value="19" />
           <entry key="com" value="3" />
           <entry key="gitignore" value="6" />
-          <entry key="java" value="222" />
+          <entry key="java" value="224" />
           <entry key="properties" value="14" />
           <entry key="xml" value="14" />
           <entry key="yaml" value="1" />
@@ -90,7 +78,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="19" />
-          <entry key="JAVA" value="222" />
+          <entry key="JAVA" value="224" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Properties" value="14" />
           <entry key="XML" value="14" />
@@ -133,8 +121,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/WeatherController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="49" column="114" selection-start-line="49" selection-start-column="114" selection-end-line="49" selection-end-column="114" />
+            <state relative-caret-position="187">
+              <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="218" selection-start-line="218" selection-end-line="218" />
             </state>
           </provider>
         </entry>
@@ -142,8 +142,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+            <state relative-caret-position="255">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,22 +161,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/MongoDBIntegrationTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/Tests/MongoDBIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="59">
-              <caret line="66" column="24" lean-forward="true" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+              <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/SolarSystemManagerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="17" column="6" selection-start-line="17" selection-end-line="17" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -335,12 +329,12 @@
         <option value="$PROJECT_DIR$/src/test/java/SolarSystem/WeatherControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/RestResponseEntityExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Models/StringResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/WeatherController.java" />
         <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Models/Planet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Application.java" />
         <option value="$PROJECT_DIR$/src/test/java/SolarSystem/MongoDBIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/SolarSystem/SolarSystemManagerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Implementations/SolarSystemManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/WeatherController.java" />
       </list>
     </option>
   </component>
@@ -363,10 +357,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1043" />
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -602,19 +596,6 @@
               <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SolarSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SolarSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -627,9 +608,9 @@
     <property name="ACTIVE_CLOUD_PROJECT_NAME" value="SolarSystem" />
     <property name="ACTIVE_CLOUD_PROJECT_NUMBER" value="171569349973" />
     <property name="SearchEverywhereHistoryKey" value="ExceptionHandlerExceptionResolver&#9;PSI&#9;JAVA://org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver&#10;appli&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/resources/application.properties&#10;swagger&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Configurations/SwaggerConfig.java&#10;spring.data.mongodb.uri&#9;PSI&#9;JAVA://org.springframework.data.mongodb.config.MongoDbFactoryParser#getMongoUri&#10;getSocketTimeout&#9;PSI&#9;JAVA://com.mongodb.MongoClientOptions#getSocketTimeout&#10;MongoProperties&#9;PSI&#9;JAVA://org.springframework.boot.autoconfigure.mongo.MongoProperties&#10;pom&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/pom.xml&#10;*exception*&#9;PSI&#9;JAVA://com.sun.javafx.tk.quantum.PrismImageLoader2#exception&#10;application.pro&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/resources/application.properties&#10;appl&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Application.java&#10;controller&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Controllers/MonitorController.java&#10;at angle&#9;PSI&#9;JAVA://SolarSystem.Models.Planet#updateAngle&#10;pom.x&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/pom.xml&#10;planetsaligned&#9;PSI&#9;JAVA://SolarSystem.Implementations.SolarSystemManager#planetsAlignedWithSun&#10;solarsy&#9;FILE&#9;file://C:/Users/Julian/Projects/SolarSystem/src/main/java/SolarSystem/Models/SolarSystem.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548196080340" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548198125557" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/SolarSystem" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Test/java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -646,8 +627,9 @@
       <recent name="C:\Users\Julian\Projects\SolarSystem\src\main\java\SolarSystem" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="SolarSystem" />
       <recent name="SolarSystem.Tests" />
+      <recent name="SolarSystem.Test" />
+      <recent name="SolarSystem" />
       <recent name="MainPackage.Controllers" />
       <recent name="Controllers" />
     </key>
@@ -675,7 +657,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Run Tests">
+  <component name="RunManager" selected="Application.Run SolarSystem">
     <configuration name="Run SolarSystem" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="SolarSystem.Application" />
       <module name="SolarSystem" />
@@ -718,18 +700,17 @@
       <option name="presentableId" value="Default" />
       <updated>1546456030066</updated>
     </task>
+    <task id="LOCAL-00001" summary="SolarSystemManager decoupled; math functions go to GeometryService&#10;Remove logger, using spring factorylogger&#10;Improve testing: check if ammount of computed days exists&#10;Deleted &quot;monitor&quot; controller&#10;Global exception handling with @ControllerAdvice&#10;Test classes repackaged&#10;Added Exceptions test cases">
+      <created>1548196110076</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1548196110076</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Run_Tests - 2019.01.22 at 10h 22m 02s.xml">
-      <configuration name="Run Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Run_Tests - 2019.01.22 at 10h 22m 14s.xml">
-      <configuration name="Run Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Run_Tests - 2019.01.22 at 10h 22m 40s.xml">
-      <configuration name="Run Tests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Run_Tests - 2019.01.22 at 13h 21m 54s.xml">
       <configuration name="Run Tests" configurationId="JUnit" />
     </history-entry>
@@ -751,6 +732,15 @@
     <history-entry file="Run_Tests - 2019.01.22 at 19h 14m 40s.xml">
       <configuration name="Run Tests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Run_Tests - 2019.01.22 at 19h 27m 45s.xml">
+      <configuration name="Run Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Run_Tests - 2019.01.22 at 19h 32m 28s.xml">
+      <configuration name="Run Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Run_Tests - 2019.01.22 at 19h 33m 52s.xml">
+      <configuration name="Run Tests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -762,21 +752,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="1912" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.4715909" side_tool="true" visible="true" weight="0.23076923" />
+      <window_info id="Structure" order="0" sideWeight="0.46866485" side_tool="true" visible="true" weight="0.21574564" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.46682465" side_tool="true" weight="0.24962178" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.52840906" visible="true" weight="0.23076923" />
-      <window_info active="true" anchor="bottom" id="Inspection Results" visible="true" weight="0.6868327" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.5313352" visible="true" weight="0.21574564" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.6868327" />
       <window_info anchor="bottom" id="Problems" order="0" sideWeight="0.49848714" weight="0.36557376" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3295082" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.43238434" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39836067" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
@@ -784,7 +774,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4977307" weight="0.3469751" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50226927" side_tool="true" weight="0.35765123" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32740214" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3262295" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24905375" />
@@ -863,11 +853,7 @@
         <watch expression="ssm.weatherRecords.entrySet().toArray()[0]" />
       </configuration>
       <configuration name="Application">
-        <watch expression="solarSystem" language="JAVA" />
-        <watch expression="this.solarSystem" language="JAVA" />
-        <watch expression="this.getSolarSystem()" language="JAVA" />
-        <watch expression="rec" language="JAVA" />
-        <watch expression="ssm.weatherRecords.toArray().length" language="JAVA" />
+        <watch expression="WeatherDays.values()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -877,6 +863,31 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>WeatherDays.values()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>WeatherDays.valueOf(WeatherDays.class, weatherDay.toUpperCase()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>WeatherDays.valueOf(WeatherDays.class, weatherDay)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>WeatherDays.</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>WeatherDays.valueOf(weatherDay)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>weatherRecords.size()</expression-string>
         <language-id>JAVA</language-id>
@@ -899,31 +910,6 @@
       </expression>
       <expression>
         <expression-string>mvc.perform(get(&quot;/weather/day/999999&quot;).accept(MediaType.APPLICATION_JSON_UTF8_VALUE))                 .andExpect(status().isNotFound())                 .andExpect(jsonPath(&quot;$[0].status&quot;).value(&quot;404&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mvc.perform(get(&quot;/weather/day/999999&quot;).accept(MediaType.APPLICATION_JSON_UTF8_VALUE))                 .andExpect(status().isNotFound())                 .andExpect(jsonPath(&quot;status&quot;).value(&quot;404&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mvc.perform(get(&quot;/weather/day/999999&quot;).accept(MediaType.APPLICATION_JSON_UTF8_VALUE))                 .andExpect(status().isNotFound())                 .andExpect(jsonPath(&quot;$status&quot;).value(&quot;404&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>mvc.perform(get(&quot;/weather/day/999999&quot;).accept(MediaType.APPLICATION_JSON_UTF8_VALUE))                 .andExpect(status().isNotFound())                 .andExpect(jsonPath(&quot;$.status&quot;).value(&quot;404&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>this.getSolarSystem()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>this.solarSystem</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1019,8 +1005,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/SolarSystemManagerTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/WeatherControllerTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/Tests/SolarSystemManagerTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/Tests/WeatherControllerTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Configurations/WebMvcConfigurationAdapter.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Configurations/SwaggerConfig.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1049,13 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="139" column="9" lean-forward="true" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1193,23 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/WeatherControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/RestResponseEntityExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Models/StringResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1239,27 +1201,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Application.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/Tests/MongoDBIntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
-          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/MongoDBIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="66" column="24" lean-forward="true" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+          <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/SolarSystemManagerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/Tests/SolarSystemManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="17" column="6" selection-start-line="17" selection-end-line="17" selection-end-column="6" />
+          <caret line="18" column="6" selection-start-line="18" selection-end-line="18" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1286,10 +1241,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/SolarSystem/Tests/WeatherControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="218" selection-start-line="218" selection-end-line="218" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Exceptions/RestResponseEntityExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SolarSystem/Controllers/WeatherController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="49" column="114" selection-start-line="49" selection-start-column="114" selection-end-line="49" selection-end-column="114" />
+        <state relative-caret-position="187">
+          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1345,11 +1337,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Google App Engine Flexible|SolarSystem</last-edited>
+          <last-edited>SolarSystem</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

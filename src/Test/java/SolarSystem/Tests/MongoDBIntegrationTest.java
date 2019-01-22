@@ -1,5 +1,6 @@
-package SolarSystem;
+package SolarSystem.Tests;
 
+import SolarSystem.Application;
 import SolarSystem.Models.WeatherRecord;
 import SolarSystem.Repositories.WeatherRepository;
 import SolarSystem.Utilities.WeatherDays;

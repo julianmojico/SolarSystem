@@ -1,6 +1,7 @@
-package SolarSystem;
+package SolarSystem.Tests;
 
 
+import SolarSystem.Application;
 import SolarSystem.Implementations.SolarSystemManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;

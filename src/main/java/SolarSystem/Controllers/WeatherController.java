@@ -5,12 +5,15 @@ import SolarSystem.Models.StringResponse;
 import SolarSystem.Models.WeatherRecord;
 import SolarSystem.Repositories.WeatherRepository;
 import SolarSystem.Utilities.WeatherDays;
+import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @RestController
@@ -40,14 +43,16 @@ public class WeatherController {
     @RequestMapping(value = "/weather/{weatherDay}", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
     public ResponseEntity<StringResponse> getWeatherCount(@PathVariable("weatherDay") String weatherDay) {
 
-        //In case of exception, the ExceptionHandler will catch.
-
-        if (WeatherDays.valueOf(weatherDay) != null) {
+        //check if the weatherDay is available/existing
+        if (EnumUtils.isValidEnum(WeatherDays.class, weatherDay)) {
             int output = weatherRepo.countByWeatherDay(weatherDay);
             StringResponse stringResponse = new StringResponse(Integer.toString(output));
             return new ResponseEntity<StringResponse>(stringResponse, HttpStatus.OK);
         } else {
-            StringResponse stringResponse = new StringResponse("Valid weather types are: " + WeatherDays.values().toString());
+            //Stringify WeatherDay allowed enums and wrap in the response
+            Object[] weatherTypes = Arrays.stream(WeatherDays.class.getEnumConstants()).map(Enum::name).toArray(String[]::new);
+            String weatherTypesString = StringUtils.arrayToDelimitedString(weatherTypes, ",");
+            StringResponse stringResponse = new StringResponse("Valid weather types are: " + weatherTypesString );
             return new ResponseEntity<StringResponse>(stringResponse, HttpStatus.OK);
         }
     }
