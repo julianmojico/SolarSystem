@@ -1,14 +1,14 @@
 package SolarSystem.Controllers;
 
-import SolarSystem.Exceptions.BadRequestException;
-import SolarSystem.Exceptions.ResourceNotFoundException;
-import SolarSystem.Exceptions.ServerErrorException;
 import SolarSystem.Implementations.SolarSystemManager;
+import SolarSystem.Models.StringResponse;
 import SolarSystem.Models.WeatherRecord;
 import SolarSystem.Repositories.WeatherRepository;
-import org.json.simple.JSONObject;
+import SolarSystem.Utilities.WeatherDays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -21,76 +21,67 @@ public class WeatherController {
     @Autowired
     private WeatherRepository weatherRepo;
 
-    @RequestMapping(value = "/weather/day/{day}", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
-    public WeatherRecord getWeather(@PathVariable(value = "day") Integer day) throws Exception {
+    @RequestMapping(value = "/weather/day/{day}", method = RequestMethod.GET, headers = "Accept=application/json", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getWeather(@PathVariable(value = "day") Integer day) {
 
-        if (!(day instanceof Integer)) {
-            throw new BadRequestException();
+        ResponseEntity<?> response;
+
+        Optional<WeatherRecord> result = weatherRepo.findById(day);
+        if (result.isPresent()) {
+            response = new ResponseEntity<Optional>(result, HttpStatus.OK);
+
         } else {
-            Optional<WeatherRecord> result = weatherRepo.findById(day);
-            if (result.isPresent()){
-                return result.get();
-            } else {
-                throw new ResourceNotFoundException();
-            }
+            response = new ResponseEntity<StringResponse>(new StringResponse("Day not found or not computed"), HttpStatus.NOT_FOUND);
+
         }
+        return response;
     }
 
     @RequestMapping(value = "/weather/{weatherDay}", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
-    public String getWeatherCount(@PathVariable("weatherDay") String weatherDay) throws ServerErrorException {
+    public ResponseEntity<StringResponse> getWeatherCount(@PathVariable("weatherDay") String weatherDay) {
 
         //In case of exception, the ExceptionHandler will catch.
-        int output = weatherRepo.countByWeatherDay(weatherDay);
-        JSONObject obj = new JSONObject();
-        obj.put("response:", output);
-        return obj.toJSONString();
 
+        if (WeatherDays.valueOf(weatherDay) != null) {
+            int output = weatherRepo.countByWeatherDay(weatherDay);
+            StringResponse stringResponse = new StringResponse(Integer.toString(output));
+            return new ResponseEntity<StringResponse>(stringResponse, HttpStatus.OK);
+        } else {
+            StringResponse stringResponse = new StringResponse("Valid weather types are: " + WeatherDays.values().toString());
+            return new ResponseEntity<StringResponse>(stringResponse, HttpStatus.OK);
+        }
     }
 
-    @RequestMapping(value="/weather", method = RequestMethod.DELETE, headers = "Accept=application/json", produces = "application/json")
-    @ResponseStatus(HttpStatus.OK)
-    public String deleteWeather() throws ServerErrorException {
 
-        try {
-            weatherRepo.deleteAll();
-        } catch (Exception e) {
-            throw new ServerErrorException();
-        }
-        JSONObject obj = new JSONObject();
-        obj.put("response:", "All weather records in Astral Solar System were deleted");
-        return obj.toJSONString();
+    @RequestMapping(value = "/weather", method = RequestMethod.DELETE, headers = "Accept=application/json", produces = "application/json")
+    public @ResponseBody
+    ResponseEntity<StringResponse> deleteWeather() {
+
+
+        weatherRepo.deleteAll();
+        String message = "All weather records in Solar System were deleted";
+        StringResponse stringResponse = new StringResponse(message);
+        return new ResponseEntity<StringResponse>(stringResponse, HttpStatus.OK);
+
     }
 
     @RequestMapping(value = "/weather/compute", method = RequestMethod.GET, headers = "Accept=application/json", produces = "application/json")
-    public String compute(@RequestParam(value = "days", defaultValue = "3650") int days) throws ServerErrorException {
+    public ResponseEntity<StringResponse> compute(@RequestParam(value = "days", defaultValue = "3650") int days) {
 
-        //This method allows compute and persistance of the weather.
+        //Controller to perform weather calculations.
 
-        String output;
-        JSONObject obj = new JSONObject();
+        weatherRepo.deleteAll();
 
-        try {
-            this.ssm.initialize("Astral", 0, 0);
-            ssm.setupSampleSystem();
-            ssm.timePassSequence(days);
+        this.ssm.initialize("Astral", 0, 0);
+        ssm.setupSampleSystem();
+        ssm.timePassSequence(days);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-
-            output = "Request could not be processed because of internal server error." + e.getCause();
-            obj.put("response", output);
-            return obj.toJSONString();
+        /*Once computed, store each record in the db*/
+        for (WeatherRecord record : ssm.weatherRecords.values()) {
+            weatherRepo.save(record);
         }
-
-        output = "WeatherDays computed succesfully days " + days + " for SolarSystem " + ssm.getSolarSystem().getName();
-        obj.put("response", output);
-        return obj.toJSONString();
+        String message = "WeatherDays computed succesfully for " + days + " days";
+        StringResponse stringResponse = new StringResponse(message);
+        return new ResponseEntity<StringResponse>(stringResponse, HttpStatus.OK);
     }
-
-    @ExceptionHandler({ServerErrorException.class})
-    public void handleException() {
-    }
-
 }

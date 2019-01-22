@@ -1,6 +1,5 @@
-package SolarSystem.Test;
+package SolarSystem;
 
-import SolarSystem.Application;
 import SolarSystem.Models.WeatherRecord;
 import SolarSystem.Repositories.WeatherRepository;
 import SolarSystem.Utilities.WeatherDays;
@@ -15,8 +14,10 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.Optional;
 import java.util.logging.LogRecord;
+
 import static org.junit.Assert.*;
 
 
@@ -25,7 +26,7 @@ import static org.junit.Assert.*;
 @SpringBootTest(classes = Application.class)
 public class MongoDBIntegrationTest {
 
-    String collectionName;
+    private String collectionName;
     LogRecord logRecToInsert;
 
     @Autowired
@@ -55,7 +56,7 @@ public class MongoDBIntegrationTest {
         WeatherRecord wr = new WeatherRecord(1, WeatherDays.MILD);
         weatherRepo.save(wr);
         Optional foundRecord = weatherRepo.findById(1);
-        assert(foundRecord.isPresent());;
+        assert(foundRecord.isPresent());
         assertEquals(foundRecord.get(),wr);
 
     }
@@ -67,7 +68,7 @@ public class MongoDBIntegrationTest {
         weatherRepo.save(wr);
         weatherRepo.delete(wr);
         Optional foundRecord = weatherRepo.findById(1);
-        assertTrue(!foundRecord.isPresent());;
+        assertTrue(!foundRecord.isPresent());
     }
 
 }

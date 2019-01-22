@@ -10,16 +10,14 @@ import java.util.Collection;
 //@Scope(value = "prototype")
 public class SolarSystem implements SolarSystemInterface {
 
-    public int ageDays;
-    public String name;
+    private int ageDays;
+    private String name;
     //Generic class so any implementation of collection can be chosen.
     private Collection<Planet> planets;
     private Vector2D solarCenter;
 
     public SolarSystem() {
     }
-
-    ;
 
     public SolarSystem(String name, Vector2D solarCenter) {
         this.name = name;

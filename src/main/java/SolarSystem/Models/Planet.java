@@ -20,14 +20,14 @@ public class Planet {
     //sexagecimal angle normalized
     public int normalizedAngle;
     //Sexagecimal angle acumulative
-    public double angle;
+    private double angle;
     public int turnsToSun;
-    public double distanceToSun;
-    public int angleByDaySpeed;
-    public boolean clockwise;
-    public int age;
-    public double x;
-    public double y;
+    private double distanceToSun;
+    private int angleByDaySpeed;
+    private boolean clockwise;
+    private int age;
+    private double x;
+    private double y;
 
 
     public Planet(String name, double distanceToSun, boolean clockwise, int angleByDay) {
@@ -53,8 +53,6 @@ public class Planet {
         updateLocation();
         age++;
     }
-
-    ;
 
     private void updateLocation() {
         //updates planet position in x,y according to new angle

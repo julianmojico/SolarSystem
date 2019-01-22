@@ -6,6 +6,7 @@ public enum WeatherDays {
     MILD,
     DRY,
     MAX_RAIN,
+    //when none of the use cases is matched, using dummy value
     NONE
 
 }
