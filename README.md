@@ -43,9 +43,3 @@ sudo mvn install
 `http://hostname:8080/swagger-ui.html`
 
 ![alt text](https://github.com/cepix/SolarSystem/blob/master/solarsystem%20swagger.jpg)
-
-# Pending items:
-
-- [ ] Remove hard depency by parametrizesing SolarSystemManager.initiate()
-- [ ] Remove hard depency by parametrizesing SolarSystemController
-- [ ] Remove hard depency by parametrizesing WeatherRecord @Document
