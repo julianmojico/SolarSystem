@@ -4,8 +4,8 @@
 julianmojico/SolarSystem is built on the following main stack:
 
 - [Java](https://www.java.com) – Languages
-- [MongoDB](http://www.mongodb.com/) – Databases
 - [Spring Framework](https://spring.io/projects/spring-framework) – Frameworks (Full Stack)
+- [MongoDB](http://www.mongodb.com/) – Databases
 - [JUnit](http://junit.org/) – Testing Frameworks
 - [Apache Camel](https://camel.apache.org/) – Platform as a Service
 
@@ -18,8 +18,8 @@ Full tech stack [here](/techstack.md)
 julianmojico/SolarSystem is built on the following main stack:
 
 - <img width='25' height='25' src='https://img.stackshare.io/service/995/K85ZWV2F.png' alt='Java'/> [Java](https://www.java.com) – Languages
-- <img width='25' height='25' src='https://img.stackshare.io/service/1030/leaf-360x360.png' alt='MongoDB'/> [MongoDB](http://www.mongodb.com/) – Databases
 - <img width='25' height='25' src='https://img.stackshare.io/service/2006/spring-framework-project-logo.png' alt='Spring Framework'/> [Spring Framework](https://spring.io/projects/spring-framework) – Frameworks (Full Stack)
+- <img width='25' height='25' src='https://img.stackshare.io/service/1030/leaf-360x360.png' alt='MongoDB'/> [MongoDB](http://www.mongodb.com/) – Databases
 - <img width='25' height='25' src='https://img.stackshare.io/service/2020/874086.png' alt='JUnit'/> [JUnit](http://junit.org/) – Testing Frameworks
 - <img width='25' height='25' src='https://img.stackshare.io/service/3276/xWt1RFo6_400x400.jpg' alt='Apache Camel'/> [Apache Camel](https://camel.apache.org/) – Platform as a Service
 
@@ -32,7 +32,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [julianmojico/SolarSystem](https://github.com/julianmojico/SolarSystem)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|17<br/>Tools used|01/31/24 <br/>Report generated|
+|17<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
